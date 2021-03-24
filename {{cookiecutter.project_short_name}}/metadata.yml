@@ -1,0 +1,24 @@
+title: {{cookiecutter.project_name}}
+author:
+    - {{cookiecutter.author}}
+institute: {{cookiecutter.institute}}
+tags:
+    - reproducible-research
+abstract: |
+    {{cookiecutter.short_description}}
+bibliography: Literatur.bib
+csl: apa.csl
+link-citations: True
+lang: de-DE
+date: 
+  {{cookiecutter.date}}
+
+# - Page settings -----------------------------------------------------------
+papersize: a4 
+listings-disable-line-numbers: true
+titlepage: true
+titlepage-rule-height: 0
+toc: true
+toc-title: Inhaltsverzeichnis
+toc-depth: 1
+toc-own-page: true

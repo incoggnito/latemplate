@@ -1,0 +1,7 @@
+{
+    "project_name": "Reproducible Research Project",
+    "project_short_name": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+    "author": "Your name",
+    "short_description": "A short description of this project.",
+    "date": "Current Date dd.mm.yyyy"
+}
