@@ -1,24 +1,42 @@
 title: {{cookiecutter.project_name}}
+subtitle: Untertitel
 author:
     - {{cookiecutter.author}}
+author-mail: "Mailadresse des Autors"
+foerderkenz: "Förderkennzeichen"
+projektlaufzeit: "Projektlaufzeit"
 institute: {{cookiecutter.institute}}
 tags:
     - reproducible-research
 abstract: |
     {{cookiecutter.short_description}}
-bibliography: Literatur.bib
-csl: apa.csl
-link-citations: True
 lang: de-DE
 date: 
   {{cookiecutter.date}}
 
 # - Page settings -----------------------------------------------------------
 papersize: a4 
-listings-disable-line-numbers: true
+documentclass: article
 titlepage: true
 titlepage-rule-height: 0
 toc: true
 toc-title: Inhaltsverzeichnis
-toc-depth: 1
+toc-depth: 4
 toc-own-page: true
+lof: true
+lof-own-page: false
+lot: true
+lot-own-page: true
+numbersections: true
+colorlinks: true
+
+# - Logo settings -----------------------------------------------------------
+# Local logo
+logo: images/AmitronicsLogo/LogoAMITRONICS.pdf
+
+# - Bibliography -------------------------------------------------------------
+bibliography: Literatur.bib
+csl: ressources/citation_styles/ieee.csl
+link-citations: True
+# --- EOF --------------------------------------------------------------------
+    

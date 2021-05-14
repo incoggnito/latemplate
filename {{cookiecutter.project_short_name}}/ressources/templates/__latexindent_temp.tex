@@ -78,13 +78,15 @@ $for(classoption)$
   $classoption$$sep$,
 $endfor$
   ,captions=tableheading
-]{$if(beamer)$$documentclass$$else$$if(book)$scrbook$else$scrartcl$endif$$endif$}
+]{$if(beamer)$$documentclass$$else$$if(book)$scrbook$else$$if(article)$article$else$scrartcl$endif$$endif$$endif$}
 $if(beamer)$
 $if(background-image)$
 \usebackgroundtemplate{%
   \includegraphics[width=\paperwidth]{$background-image$}%
 }
 $endif$
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{pgfpages}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{: }
@@ -245,8 +247,8 @@ $if(verbatim-in-note)$
 \usepackage{fancyvrb}
 $endif$
 \usepackage{xcolor}
-\definecolor{default-linkcolor}{HTML}{A50000}
-\definecolor{default-filecolor}{HTML}{A50000}
+\definecolor{default-linkcolor}{HTML}{4f4f4f}
+\definecolor{default-filecolor}{HTML}{4f4f4f}
 \definecolor{default-citecolor}{HTML}{4077C0}
 \definecolor{default-urlcolor}{HTML}{4077C0}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -305,6 +307,8 @@ $endif$
 $if(logo)$
 \usepackage[export]{adjustbox}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{svg}
 $endif$
 $if(beamer)$
 \newif\ifbibliography
@@ -374,7 +378,8 @@ $if(graphics)$
 % Scale images if necessary, so that they will not overflow the page
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+%\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+%\setkeys{Gin}{width=\maxwidth,height=\maxheight}
 % Set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
@@ -393,7 +398,8 @@ $endif$
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 $if(numbersections)$
-\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$3$endif$}
+\setcounter{section}{0}%start with 1 instead of 0
 $else$
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 $endif$
@@ -892,7 +898,7 @@ $if(titlepage)$
 $if(titlepage-background)$
 \newgeometry{top=2cm, right=4cm, bottom=3cm, left=4cm}
 $else$
-\newgeometry{left=6cm}
+\newgeometry{top=2.5cm, right=2.5cm, bottom=2.5cm, left=3cm}
 $endif$
 $if(titlepage-color)$
 \definecolor{titlepage-color}{HTML}{$titlepage-color$}
@@ -900,6 +906,12 @@ $if(titlepage-color)$
 $endif$
 $if(titlepage-background)$
 \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{$titlepage-background$}};
+$endif$
+
+$if(logo)$
+\tikz[remember picture,overlay] \node[inner sep=0pt, anchor=north east] at (130mm,0mm){\includegraphics{$logo$}};
+\tikz[remember picture,overlay] \draw[draw={rgb,255:red,227;green,0;blue,22},fill={rgb,255:red,227;green,0;blue,22}] (0mm,5mm) rectangle ++(150mm,1mm);
+%\tikz[remember picture,overlay] \draw[draw={rgb,255:red,227;green,0;blue,22},fill={rgb,255:red,227;green,0;blue,22}] (0mm,250mm) rectangle ++(150mm,1mm);
 $endif$
 \newcommand{\colorRule}[3][black]{\textcolor[HTML]{#1}{\rule{#2}{#3}}}
 \begin{flushleft}
@@ -922,32 +934,45 @@ $if(titlepage-background)$
   {\Large \textsf{$subtitle$}}
   $endif$
   \vskip 2em
-  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$} \vskip 0.6em \textsf{$date$}}
+  %\noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$} \textsf{$date$}}
+  {\Large \textsf{\textbf{$author$}}}\\
+  AMITRONICS Angewandte Mikromechatronik GmbH \\ 
+  Am Technologiepark 10 \\ 
+  D-82229 Seefeld b. München 
+  $if(author-mail)$\\ \href{mailto:$author-mail$}{$author-mail$} $endif$ \textsf{$date$}
   \vfill
 }
 $else$
 {
-  \setstretch{1.4}
-  \vfill
-  \noindent {\huge \textbf{\textsf{$title$}}}
+  %\setstretch{1.4}
+  %\vfill
+  \vspace{4cm}
+  \noindent {\Huge \textbf{\textsf{$title$}}}\\
   $if(subtitle)$
-  \vskip 1em
-  {\Large \textsf{$subtitle$}}
+  \vspace{1.5cm}
+  {\Large \textsf{$subtitle$}}\\
   $endif$
-  \vskip 2em
-  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$}}
-  \vfill
+  \vspace{5cm}
+  \setstretch{1}
+  %\noindent {\large \textsf{\textbf{$author$}}}\\
+  {\large \textsf{\textbf{$author$}}}\\
+  \normalsize{AMITRONICS Angewandte Mikromechatronik GmbH} \\ 
+  Am Technologiepark 10 \\ 
+  D-82229 Seefeld b. München \\ 
+  $if(author-mail)$ \href{mailto:$author-mail$}{$author-mail$} \\ $endif$
+  \vspace{3cm}
+  \begin{tabular}{l l}
+  $if(foerderkenz)$ \textbf{Förderkennzeichen:} & $foerderkenz$ \\ $endif$
+  $if(projektlaufzeit)$ \textbf{Projektlaufzeit:} & $projektlaufzeit$ \\ $endif$
+  %\vfill
+  \textbf{Datum:} & \textsf{$date$}
+  \end{tabular}
 }
-$endif$
-
-$if(logo)$
-\noindent
-\includegraphics[width=$if(logo-width)$$logo-width$$else$35mm$endif$, left]{$logo$}
 $endif$
 
 $if(titlepage-background)$
 $else$
-\textsf{$date$}
+%\textbf{Datum:} & \textsf{$date$}
 $endif$
 \end{flushleft}
 \end{titlepage}
@@ -975,7 +1000,7 @@ $endif$
 
 $if(first-chapter)$
 \setcounter{chapter}{$first-chapter$}
-\addtocounter{chapter}{-1}
+\addtocounter{chapter}{-2}
 $endif$
 
 $for(include-before)$
@@ -1009,11 +1034,17 @@ $endif$
 }
 $endif$
 $endif$
-$if(lot)$
-\listoftables
-$endif$
 $if(lof)$
 \listoffigures
+$if(lof-own-page)$
+\newpage
+$endif$
+$endif$
+$if(lot)$
+\listoftables
+$if(lot-own-page)$
+\newpage
+$endif$
 $endif$
 $if(linestretch)$
 \setstretch{$linestretch$}
