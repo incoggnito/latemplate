@@ -5,6 +5,7 @@ author:
 author-mail: {{cookiecutter.mail}}
 foerderkenz: {{cookiecutter.fkz}}
 projektlaufzeit: {{cookiecutter.timeline}}
+berichtszeitraum: {{cookiecutter.reporttime}}
 institute: {{cookiecutter.institute}}
 tags:
     - reproducible-research
