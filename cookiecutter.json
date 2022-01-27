@@ -1,7 +1,8 @@
 {
-    "project_name": "Reproducible Research Project",
+    "project_name": "Forschungsprojekt",
+    "subtitle": "Untertitel",
     "project_short_name": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
-    "author": "Your name",
+    "author": "Name des Autors",
     "mail": "Mailadresse des Autors",
     "fkz": "Förderkennzeichen",
     "institute": "Institut",
