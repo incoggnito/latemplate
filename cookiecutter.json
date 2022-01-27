@@ -7,6 +7,7 @@
     "fkz": "Förderkennzeichen",
     "institute": "Institut",
     "timeline": "Projektlaufzeit",
+    "reporttime": "Berichtszeitraum",
     "short_description": "A short description of this project.",
     "date": "Current Date dd.mm.yyyy",
     "_copy_without_render": [
