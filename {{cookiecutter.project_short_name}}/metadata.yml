@@ -2,9 +2,9 @@ title: {{cookiecutter.project_name}}
 subtitle: Untertitel
 author:
     - {{cookiecutter.author}}
-author-mail: "Mailadresse des Autors"
-foerderkenz: "Förderkennzeichen"
-projektlaufzeit: "Projektlaufzeit"
+author-mail: {{cookiecutter.mail}}
+foerderkenz: {{cookiecutter.fkz}}
+projektlaufzeit: {{cookiecutter.timeline}}
 institute: {{cookiecutter.institute}}
 tags:
     - reproducible-research
