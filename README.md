@@ -3,7 +3,7 @@
 ## Installation
 
 1. Install MikTex
-2. Pandoc (MsiInstaller): [Downloadlink-Github](https://github.com/jgm/pandoc/releases/tag/2.2.1)
+2. Pandoc (MsiInstaller): [Downloadlink-Github](https://github.com/jgm/pandoc/releases)
 
 ## Usage
 
