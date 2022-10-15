@@ -10,15 +10,17 @@ import mimetypes
 import subprocess
 import os
 import sys
+import urllib
+import re
 from pandocfilters import toJSONFilter, Str, Para, Image
 
 fmt_to_option = {
-    "latex": ("--export-pdf","pdf"),
-    "beamer": ("--export-pdf","pdf"),
+    "latex": ("--export-filename","pdf"),
+    "beamer": ("--export-filename","pdf"),
     #use PNG because EMF and WMF break transparency
-    "docx": ("--export-png", "png"),
+    "docx": ("--export-filename", "png"),
     #because of IE
-    "html": ("--export-png", "png")
+    "html": ("--export-filename", "png")
 }
 
 def svg_to_any(key, value, fmt, meta):
@@ -29,14 +31,32 @@ def svg_to_any(key, value, fmt, meta):
            attrs = None
        else:
            attrs, alt, [src, title] = value
-       mimet,_ = mimetypes.guess_type(src)
+
+       if re.match('https?\://',src):
+          srcm = re.sub('\?.+','',src)
+          srcm = re.sub('\#.+','',srcm)
+          srcm = re.sub('/$','',srcm)
+       else:
+          srcm = src
+
+       mimet,_ = mimetypes.guess_type(srcm)
        option = fmt_to_option.get(fmt)
+
        if mimet == 'image/svg+xml' and option:
-           base_name,_ = os.path.splitext(src)
+           if re.match('https?\://',src):
+               bsnm = urllib.unquote(os.path.basename(srcm).encode('utf8'))
+               bsnm = re.sub('[^a-zA-Z0-9\.]','',bsnm)
+               src,h = urllib.urlretrieve(src,bsnm)
+           else:
+               bsnm = None
+           if bsnm:
+               base_name,_ = os.path.splitext(bsnm)
+           else:
+               base_name,_ = os.path.splitext(src)
            eps_name = base_name + "." + option[1]
            try:
                mtime = os.path.getmtime(eps_name)
-           except OSError:
+           except OSError                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              :
                mtime = -1
            if mtime < os.path.getmtime(src):
                cmd_line = ['inkscape', option[0], eps_name, src]
