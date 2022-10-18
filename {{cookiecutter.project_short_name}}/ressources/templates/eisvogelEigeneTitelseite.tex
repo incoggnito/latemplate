@@ -378,7 +378,7 @@ $if(graphics)$
 % Scale images if necessary, so that they will not overflow the page
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
-%\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 %\setkeys{Gin}{width=\maxwidth,height=\maxheight}
 % Set default figure placement to htbp
 \makeatletter
@@ -969,6 +969,7 @@ $else$
   %\noindent {\large \textsf{\textbf{$author$}}}\\
   {\large \textsf{\textbf{$author$}}}\\
   \normalsize{AMITRONICS Angewandte Mikromechatronik GmbH} \\ 
+  Am Technologiepark 10 \\ 
   Waldmeisterstr. 99 \\ 
   D-80935 München \\ 
   $if(author-mail)$ \href{mailto:$author-mail$}{$author-mail$} \\ $endif$
