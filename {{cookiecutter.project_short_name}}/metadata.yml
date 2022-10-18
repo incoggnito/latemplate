@@ -12,8 +12,6 @@ tags:
 abstract: |
     {{cookiecutter.short_description}}
 lang: de-DE
-date: 
-  {{cookiecutter.date}}
 
 # - Page settings -----------------------------------------------------------
 papersize: a4 
