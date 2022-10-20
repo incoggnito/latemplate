@@ -5,6 +5,13 @@
 1. Install MikTex (https://miktex.org/download/)
 2. Pandoc (MsiInstaller): [Downloadlink-Github](https://github.com/jgm/pandoc/releases)
 
+~~~sh
+sudo apt install texlive-latex-extra
+tlmgr init-usertree
+tlmgr option repository ftp://tug.org/historic/systems/texlive/2021/tlnet-final
+tlmgr --usermode install adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat ulem unicode-math upquote xecjk xurl zref
+~~~
+
 ## Usage
 
 ### Creating the template for the document 
