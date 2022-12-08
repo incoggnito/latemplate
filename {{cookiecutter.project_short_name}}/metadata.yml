@@ -32,6 +32,7 @@ colorlinks: true
 # - Logo settings -----------------------------------------------------------
 # Local logo
 logo: images/AmitronicsLogo/Logo_Amitronics_New.pdf
+sign: images/AmitronicsLogo/sign.png
 
 # - Bibliography -------------------------------------------------------------
 bibliography: Literatur.bib
