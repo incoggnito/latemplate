@@ -4,10 +4,11 @@
 
 ### Windows Requirements
 
-1. Install MikTex (https://miktex.org/download/)
+1. Install Git Bash for Windows
+2. Install MikTex (https://miktex.org/download/)
 2. Open MixTex Console and update
 3. Add MixTex to the user PATH and restart your Machine
-2. Pandoc (MsiInstaller): [Downloadlink-Github](https://github.com/jgm/pandoc/releases)
+2. Pandoc (MsiInstaller): [Downloadlink-Github](https://github.com/jgm/pandoc/releases) **2.11**
 3. Optional: Zotero + Webplugin + Integration into the texteditor and pandoc settings
 
 ### Ubuntu Requirements
@@ -20,6 +21,12 @@ tlmgr --usermode install adjustbox babel-german background bidi collectbox csquo
 ~~~
 
 ## Usage
+
+Install all missing packages!
+
+```
+bash run.sh
+```
 
 ### Creating the template for the document 
 1. Copy the shell script laproject.sh in the folder Scripts to the location at your PC, where you want to create the document.
