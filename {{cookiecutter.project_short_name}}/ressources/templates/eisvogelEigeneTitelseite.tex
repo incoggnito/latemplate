@@ -439,7 +439,7 @@ $if(lang)$
   $endif$
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
-  \setmainlanguage[$for(polyglossia-lang.options)$$polyglossia-lang.options$$sep$,$endfor$]{$polyglossia-lang.name$}
+  % \setmainlanguage[$for(polyglossia-lang.options)$$polyglossia-lang.options$$sep$,$endfor$]{$polyglossia-lang.name$}
 $for(polyglossia-otherlangs)$
   \setotherlanguage[$for(polyglossia-otherlangs.options)$$polyglossia-otherlangs.options$$sep$,$endfor$]{$polyglossia-otherlangs.name$}
 $endfor$
@@ -543,6 +543,9 @@ $if(titlegraphic)$
 $endif$
 $if(logo)$
 \logo{\includegraphics{$logo$}}
+$endif$
+$if(sign)$
+\sign{\includegraphics{$sign$}}
 $endif$
 $endif$
 
@@ -926,6 +929,11 @@ $if(logo)$
 \tikz[remember picture,overlay] \draw[draw={rgb,255:red,147;green,32;blue,28},fill={rgb,255:red,147;green,32;blue,28}] (0mm,5mm) rectangle ++(150mm,1mm);
 %\tikz[remember picture,overlay] \draw[draw={rgb,255:red,227;green,0;blue,22},fill={rgb,255:red,227;green,0;blue,22}] (0mm,250mm) rectangle ++(150mm,1mm);
 $endif$
+$if(sign)$
+\tikz[remember picture,overlay] \node[inner sep=0pt, anchor=south east] at (60mm,-240mm){\includegraphics{$sign$}};
+%\tikz[remember picture,overlay] \draw[draw={rgb,255:red,227;green,0;blue,22},fill={rgb,255:red,227;green,0;blue,22}] (0mm,250mm) rectangle ++(150mm,1mm);
+$endif$
+
 \newcommand{\colorRule}[3][black]{\textcolor[HTML]{#1}{\rule{#2}{#3}}}
 \begin{flushleft}
 \noindent
@@ -947,8 +955,8 @@ $if(titlepage-background)$
   {\Large \textsf{$subtitle$}}
   $endif$
   \vskip 2em
-  %\noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$} \textsf{$date$}}
-  {\Large \textsf{\textbf{$author$}}}\\
+  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$}}\\
+  % {\Large \textsf{\textbf{$author$}}}\\
   AMITRONICS Angewandte Mikromechatronik GmbH \\ 
   Waldmeisterstr. 99 \\ 
   D-80935 München
@@ -967,10 +975,9 @@ $else$
   $endif$
   \vspace{5cm}
   \setstretch{1}
-  %\noindent {\large \textsf{\textbf{$author$}}}\\
-  {\large \textsf{\textbf{$author$}}}\\
+  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$}}\\
+  %{\large \textsf{\textbf{$author$}}}\\
   \normalsize{AMITRONICS Angewandte Mikromechatronik GmbH} \\ 
-  Am Technologiepark 10 \\ 
   Waldmeisterstr. 99 \\ 
   D-80935 München \\ 
   $if(author-mail)$ \href{mailto:$author-mail$}{$author-mail$} \\ $endif$
@@ -979,6 +986,7 @@ $else$
   $if(foerderkenz)$ \textbf{Förderkennzeichen:} & $foerderkenz$ \\ $endif$
   $if(projektlaufzeit)$ \textbf{Projektlaufzeit:} & $projektlaufzeit$ \\ $endif$
   $if(reporttime)$ \textbf{Berichtszeitraum:} & $reporttime$ \\ $endif$
+  $if(responsible)$ \textbf{Projektverantwortlich:} & $responsible$ \\ $endif$
   %\vfill
   \textbf{Datum:} & \textsf{$date$}
   \end{tabular}
