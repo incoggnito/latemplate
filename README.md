@@ -6,7 +6,7 @@
 
 1. Install MikTex (https://miktex.org/download/)
 2. Open MixTex Console and update
-3. Add MixTex to the user PATH
+3. Add MixTex to the user PATH and restart your Machine
 2. Pandoc (MsiInstaller): [Downloadlink-Github](https://github.com/jgm/pandoc/releases)
 3. Optional: Zotero + Webplugin + Integration into the texteditor and pandoc settings
 
