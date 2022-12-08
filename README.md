@@ -2,8 +2,12 @@
 
 ## Installation
 
+### Windows Requirements
+
 1. Install MikTex (https://miktex.org/download/)
 2. Pandoc (MsiInstaller): [Downloadlink-Github](https://github.com/jgm/pandoc/releases)
+
+### Ubuntu Requirements
 
 ~~~sh
 sudo apt install texlive-latex-extra
