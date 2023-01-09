@@ -4,7 +4,7 @@
 
 ### Windows Requirements
 
-1. Install Git Bash for Windows
+1. Install Git Bash for Windows (https://git-scm.com/download)
 2. Install MikTex (https://miktex.org/download/)
 2. Open MixTex Console and update
 3. Add MixTex to the user PATH and restart your Machine
