@@ -24,6 +24,7 @@ tlmgr --usermode install adjustbox babel-german background bidi collectbox csquo
 ## Usage
 
 Install all missing packages!
+Miktex Console -> Pakete
 
 ```
 bash run.sh
