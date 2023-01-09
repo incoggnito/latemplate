@@ -1,7 +1,7 @@
 #!/bin/bash
 prjfld=$(PWD)
 if [ ! -d _latemplate ]; then
-    git clone "https://git.amitronics.net/amitronics/templates/latemplate.git" _latemplate
+    git clone -b s.boehm-master-patch-17438 "https://git.amitronics.net/amitronics/templates/latemplate.git" _latemplate
 else
     cd _latemplate/
     git pull origin master

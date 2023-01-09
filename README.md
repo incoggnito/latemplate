@@ -4,12 +4,13 @@
 
 ### Windows Requirements
 
-1. Install Git Bash for Windows
-2. Install MikTex (https://miktex.org/download/)
-2. Open MixTex Console and update
-3. Add MixTex to the user PATH and restart your Machine
-2. Pandoc (MsiInstaller): [Downloadlink-Github](https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-windows-x86_64.msis) **Version < 2.11**
-3. Optional: Zotero + Webplugin + Integration into the texteditor and pandoc settings
+1. Install Git Bash for Windows (https://git-scm.com/download)
+2. Install Python (https://www.python.org/downloads/)
+3. Install MikTex (https://miktex.org/download/)
+4. Open MikTex Console and update
+5. Add MikTex to the user PATH and restart your Machine
+6. Pandoc (MsiInstaller): [Downloadlink-Github](https://github.com/jgm/pandoc/releases/tag/2.10.1) **Version < 2.11**
+7. Optional: Zotero + Webplugin + Integration into the texteditor and pandoc settings
 
 ### Ubuntu Requirements
 
@@ -23,6 +24,7 @@ tlmgr --usermode install adjustbox babel-german background bidi collectbox csquo
 ## Usage
 
 Install all missing packages!
+Miktex Console -> Pakete
 
 ```
 bash run.sh
@@ -38,7 +40,7 @@ bash run.sh
 
 
 1. In the metadata.yml you can specify your meta options for the compiled file.
-2. Use Zotero to manage citations and your bibliography. A updated AMITRONICS bibliography is stored on the AMITRONICS nextcloudserver: [Link to the AMITRONICS Zotero bibliography](https://amitronics.net/apps/files/?dir=/Wissen/Literatur/Libary_Zotero&fileid=6944)
+2. Use Zotero to manage citations and your bibliography.
 3. Save the images, which you want to use in your document, in the folder images. **Don't use .svg use .pdf** -> pip install svglib -> svg2pdf test.svg
 4. In the folder src create the markdown files for the particular chapters or section of your document. In case of short documents it is also possible to just use one file. All Markdown files in that folder are going to be compiled. In the output file the chapters have the same order like the order of the markdown files in the folder.
 5. **Double click on run.sh** : To compile your Markdown document into a pdf
