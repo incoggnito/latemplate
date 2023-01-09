@@ -1,9 +1,8 @@
-
 ## Header 2 no toc {-}
 
-Here is a nice picture \ref{LogoAMITRONICS.pdf}
+Here is a nice picture
 
-![Bildunterschrift \label{LogoAMITRONICS.pdf}](images/AmitronicsLogo/LogoAMITRONICS.pdf){ width=70% }
+![Bildunterschrift](images/ExampleLogo.pdf)
 
 ## Header 2 with ref \label{sec:someref}
 
