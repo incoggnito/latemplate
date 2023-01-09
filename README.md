@@ -8,7 +8,7 @@
 2. Install MikTex (https://miktex.org/download/)
 2. Open MikTex Console and update
 3. Add MikTex to the user PATH and restart your Machine
-2. Pandoc (MsiInstaller): [Downloadlink-Github](https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-windows-x86_64.msis) **Version < 2.11**
+2. Pandoc (MsiInstaller): [Downloadlink-Github](https://github.com/jgm/pandoc/releases/tag/2.10.1) **Version < 2.11**
 3. Optional: Zotero + Webplugin + Integration into the texteditor and pandoc settings
 
 ### Ubuntu Requirements
