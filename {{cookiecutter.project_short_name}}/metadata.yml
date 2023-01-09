@@ -31,8 +31,8 @@ colorlinks: true
 
 # - Logo settings -----------------------------------------------------------
 # Local logo
-logo: images/ExampleLogo.pdf
-sign: images/ExampleSign.png
+logo: images/logo.png
+sign: images/sign.png
 
 # - Bibliography -------------------------------------------------------------
 bibliography: Literatur.bib
